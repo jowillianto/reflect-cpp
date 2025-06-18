@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 
 option(REFLECTCPP_BUILD_SHARED "Build shared library" ${BUILD_SHARED_LIBS})
-
+option(REFLECTCPP_INSTALL "Install the project" OFF)
 option(REFLECTCPP_JSON "Enable JSON support" ON) # enabled by default
 option(REFLECTCPP_AVRO "Enable AVRO support" OFF)
 option(REFLECTCPP_BSON "Enable BSON support" OFF)
@@ -308,7 +308,7 @@ if (REFLECTCPP_BUILD_BENCHMARKS)
     add_subdirectory(benchmarks)
 endif ()
 
-if (PROJECT_IS_TOP_LEVEL)
+if (REFLECTCPP_INSTALL)
     include(GNUInstallDirs)
     include(CMakePackageConfigHelpers)
 
